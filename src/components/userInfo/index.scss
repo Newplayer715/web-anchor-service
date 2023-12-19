@@ -1,21 +1,22 @@
 .userInfo {
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #dee0e3;
+    height: 70px;
+    // border-bottom: 1px solid #dee0e3;
+    box-sizing: border-box;
 }
 
 .userInfoLeft {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 18px 30px 22px 20px;
-    box-sizing: border-box;
-    border-right: 1px solid #dee0e3;
+    justify-content: flex-end;
+    height: 70px;
+    margin-top: 10px;
+    
 
     .userAvatar {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
+        margin-right: 10px;
     }
 
     .userMode {
@@ -23,7 +24,7 @@
         flex-direction: column;
         align-items: center;
         flex: 1;
-        margin-left: 5px;
+        margin: 0 5px;
 
         .userModeTop {
             display: flex;
@@ -35,7 +36,7 @@
                 font-size: 18px;
                 font-family: PingFang SC, PingFang SC-Bold;
                 font-weight: 700;
-                color: #1f2329;
+                color: #ffffff;
             }
         }
 
@@ -51,13 +52,12 @@
                 height: auto;
                 border: 1px solid #d0d0d0;
                 border-radius: 5px;
-                padding: 3px 14px;
+                padding: 3px 10px;
                 box-sizing: border-box;
                 font-size: 14px;
                 font-family: PingFang SC, PingFang SC-Bold;
-                font-weight: 700;
-                color: #0073fa;
-                margin-right: 5px;
+                color: #FFFFFF;
+                margin:0 10px;
                 text-align: center;
 
             }
@@ -65,14 +65,21 @@
             .userStatus {
                 width: auto;
                 height: 25px;
-                background: #00b164;
+                background: #786bff;
                 border-radius: 13px;
                 padding: 0 13px;
                 box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                
+            }
+            .status{
                 font-size: 16px;
                 font-family: PingFang SC, PingFang SC-Regular;
                 color: #ffffff;
-                cursor: pointer;
+                margin-right: 3px;
             }
             .stop{
                 background: #707477;
@@ -91,7 +98,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #dee0e3;
         padding-bottom: 10px;
         cursor: pointer;
         .listLeft {
@@ -111,13 +117,13 @@
                 height: 12px;
                 background: #707477;
                 border-radius: 50%;
-                background: #00b164;
+                background: #0073fa;
             }
 
             .title {
                 font-size: 16px;
                 font-family: PingFang SC, PingFang SC-Regular;
-                color: #1f2329;
+                color: #FFFFFF;
                 margin: 0 5px;
             }
         }
@@ -137,43 +143,48 @@
 
     .editData {
         display: flex;
-        border-bottom: 1px solid #dee0e3;
+        border-bottom: 1px solid #2b3253;
         padding: 10px;
         box-sizing: border-box;
         width: 100%;
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Regular;
-        color: #1f2329;
+        color: #fff;
         cursor: pointer;
     }
 
     .logOut {
         display: flex;
-        border-bottom: 1px solid #dee0e3;
+        // border-bottom: 1px solid #dee0e3;
         padding: 10px;
         box-sizing: border-box;
         width: 100%;
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Regular;
-        color: #f54a45;
+        color: #FFB92E;
         cursor: pointer;
     }
 }
 
 .userInfoRight {
-    padding: 29px 20px 25px 20px;
-    box-sizing: border-box;
-
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 70px;
+    padding-right: 20px;
+    border-right: 1px solid #2b3253;
     .languageSwitch {
         display: flex;
         align-items: center;
         justify-content: space-around;
         height: 46px;
-        background: #ffffff;
+        // background: #ffffff;
         border: 1px solid #d0d0d0;
         border-radius: 10px;
         width:auto;
-
+        padding: 0 20px;
+        box-sizing: border-box;
         cursor: pointer;
         .selectorIcon {
             width: 22px;
@@ -183,10 +194,10 @@
         }
 
         .title {
-            font-size: 16px;
+            font-size: 14px;
             font-family: PingFang SC, PingFang SC-Regular;
-            color: #1f2329;
-
+            color: #fff;
+            margin: 0 5px;
         }
     }
 
@@ -211,7 +222,8 @@
             font-size: 16px;
             font-family: PingFang SC, PingFang SC-Bold;
             font-weight: 700;
-            color: #1f2329;
+            color: #fff;
+            margin:10px 0;
         }
 
         .nameInput {
@@ -222,10 +234,11 @@
 
         .identity {
             height: 38px;
-            width: 150px;
+            width: auto;
+            padding: 0 10px;
+            box-sizing: border-box;
             border: 1px solid #d0d0d0;
             border-radius: 5px;
-            box-sizing: border-box;
             font-size: 16px;
             font-family: PingFang SC, PingFang SC-Bold;
             font-weight: 700;
@@ -233,15 +246,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 10px;
         }
     }
 }
 
-:deep .el-dialog {
-    background: #ffffff;
-    border-radius: 10px;
-}
+
 
 :deep .avatar-uploader .el-upload {
     border: 4px solid #5f49c6;

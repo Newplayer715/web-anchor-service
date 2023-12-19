@@ -120,6 +120,10 @@ export default {
       this.country_id = Number(localStorage.getItem("country_id"))
       this.language_id = Number(localStorage.getItem("language_id"))
       this.languageAbbreviation = (localStorage.getItem("languageAbbreviation"))
+    }else{
+      this.country_id = 4
+      this.language_id =3
+      this.languageAbbreviation='en'
     }
     this.loadTranslation()
   },

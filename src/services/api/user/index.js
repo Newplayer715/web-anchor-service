@@ -4,7 +4,7 @@ import QS from "qs"; //数据序列化
 // 获取个人信息
 export function getUser(data) {
   return request({
-    url: "/owninformation/" + data,
+    url: "/ownerinformation/" + data,
     method: "get",
   });
 }
@@ -21,7 +21,7 @@ export function login(data) {
 // 修改客服消息
 export function updateUser(userId, data) {
   return request({
-    url: `/owninformation/${userId}/`,
+    url: `/ownerinformation/${userId}/`,
     method: "put",
     data: QS.stringify(data),
   });
@@ -29,7 +29,7 @@ export function updateUser(userId, data) {
 // 修改客服头像
 // export function updateUserProfile(userId, data) {
 //   return request({
-//     url: `/owninformation/${userId}/`,
+//     url: `/ownerinformation/${userId}/`,
 //     method: "post",
 //     data: QS.stringify(data),
 //   });
@@ -82,8 +82,26 @@ export function deleteScript(data) {
   });
 }
 // 话术修改
-
-
+export function editScript(id,data) {
+  return request({
+    url: `/scripts/${id}/`,
+    method: "put",
+    data: QS.stringify(data),
+  });
+}
+// 话术批量修改
+export function editScripts(user_id,region_id,category_name,contents) {
+  return request({
+    url: "/scripts/batchupdate/",
+    method: "put",
+    data:{
+      user_id:user_id,
+      region_id:region_id,
+      category_name:category_name,
+      contents:contents
+    }
+  });
+}
 
 // 链接查询
 export function getLinks(user_id) {
@@ -170,10 +188,13 @@ export function filesUpload(data) {
 }
 
 // 文件获取
-export function filesGet() {
+export function filesGet(user_id) {
   return request({
-    url: "/file/",
+    url: "/file/" ,
     method: "get",
+    params:{
+      user_id:user_id,
+    },
   });
 }
 

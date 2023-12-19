@@ -6,7 +6,7 @@
         font-size: 18px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
         line-height: 20px;
     }
 
@@ -60,12 +60,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #eff0f1;
+        background: #2e334d;
         border-radius: 5px;
         padding: 0 20px;
         box-sizing: border-box;
         margin-bottom: 10px;
-        cursor: pointer;
 
         .left {
             display: flex;
@@ -80,10 +79,10 @@
             }
 
             .title {
-                margin:10px 10px;
+                margin: 10px 10px;
                 font-size: 14px;
                 font-family: PingFang SC, PingFang SC-Regular;
-                color: #1f2329;
+                color: #fff;
                 white-space: normal;
                 word-break: break-all;
                 word-wrap: break-word;
@@ -111,10 +110,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #dee0e3;
-        border-radius: 10px;
-        height: 40px;
-        width: 290px;
+        background: linear-gradient(180deg, #786bff, #594dfe);
+        border-radius: 5px;
+        width: 40%;
+        height: 50px;
         box-sizing: border-box;
         margin-top: 40px;
         cursor: pointer;
@@ -123,7 +122,7 @@
             font-size: 16px;
             font-family: PingFang SC, PingFang SC-Bold;
             font-weight: 700;
-            color: #5868f3;
+            color: #fff;
             line-height: 18px;
         }
 
@@ -140,14 +139,14 @@
 }
 
 
-
 .verbalLists {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #dee0e3;
+    border-bottom: 1px solid #2b3253;
     padding: 20px 10px;
     box-sizing: border-box;
+    color: #fff;
 
     .operation {
         display: flex;
@@ -169,17 +168,19 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 46px;
+    background: linear-gradient(180deg, #786bff, #594dfe);
+    border-radius: 5px;
     padding: 10px 0;
     box-sizing: border-box;
     margin-top: 20px;
-    border: 1px solid #dee0e3;
-    border-radius: 10px;
+
     cursor: pointer;
 
     .title {
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Regular;
-        color: #5868f3;
+        color: #fff;
         line-height: 18px;
         margin-left: 10px;
     }
@@ -194,7 +195,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
 
     .Input {
@@ -212,7 +213,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
 
     .Input {

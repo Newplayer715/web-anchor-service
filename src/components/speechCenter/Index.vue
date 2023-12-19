@@ -2,7 +2,12 @@
   <div class="speechCenter">
     <div class="center">
       <div class="title">{{ $t("discourseCenter") }}</div>
-      <el-popover placement="bottom" width="270" trigger="click">
+      <el-popover
+        placement="bottom"
+        width="270"
+        trigger="click"
+        v-model="visible"
+      >
         <regionalLanguage @changeData="getData"></regionalLanguage>
         <div class="regionalSelection" slot="reference">
           <div class="right">
@@ -44,27 +49,56 @@
               <div class="title">{{ item.content }}</div>
             </div>
             <div class="controls">
-              <div
-                class="iconfont icon-jijianfasong-xianxing"
-                @click="speechSend(item)"
-                style="font-size: 25px; color: #5868f3"
-              ></div>
-              <el-popconfirm
-                :title="$t('deleteSpeechSkills')"
-                @confirm="deleteSpeechData(item.id)"
-                :confirm-button-text="$t('confirm')"
-                :cancel-button-text="$t('cancel')"
-              >
+              <el-tooltip :content="$t('send')" placement="top" effect="light">
                 <div
-                  slot="reference"
-                  class="iconfont icon-shanchu"
-                  style="font-size: 25px; color: #f54a45; margin: 0 10px"
+                  class="iconfont icon-jijianfasong-xianxing"
+                  @click="speechSend(item)"
+                  style="font-size: 25px; color: #5868f3; cursor: pointer"
                 ></div>
-              </el-popconfirm>
-              <div
-                class="iconfont icon-fuzhi"
-                style="font-size: 32px; color: #5868f3"
-              ></div>
+              </el-tooltip>
+
+              <el-tooltip :content="$t('edit')" placement="top" effect="light">
+                <div
+                  class="iconfont icon-bianji"
+                  @click="singleSpeechEdit(speechList,item)"
+                  style="
+                    font-size: 25px;
+                    color: #5868f3;
+                    cursor: pointer;
+                    margin: 0 10px;
+                  "
+                ></div>
+              </el-tooltip>
+
+              <el-tooltip
+                :content="$t('delete')"
+                placement="top"
+                effect="light"
+              >
+                <el-popconfirm
+                  :title="$t('deleteSpeechSkills')"
+                  @confirm="deleteSpeechData(item.id)"
+                  :confirm-button-text="$t('confirm')"
+                  :cancel-button-text="$t('cancel')"
+                >
+                  <div
+                    slot="reference"
+                    class="iconfont icon-shanchu"
+                    style="font-size: 25px; color: #f54a45; cursor: pointer"
+                  ></div>
+                </el-popconfirm>
+              </el-tooltip>
+              <el-tooltip :content="$t('copy')" placement="top" effect="light">
+                <div
+                  class="iconfont icon-fuzhi"
+                  style="
+                    font-size: 32px;
+                    color: #5868f3;
+                    cursor: pointer;
+                    margin: 0 10px;
+                  "
+                ></div>
+              </el-tooltip>
             </div>
           </div>
         </el-collapse-item>
@@ -153,7 +187,7 @@
     <!-- 话术编辑弹窗 -->
     <el-dialog
       :close-on-click-modal="false"
-      title="话术编辑"
+      :title="$t('edit')"
       :visible.sync="dialogTableVisibleEdit"
       width="20%"
     >
@@ -187,7 +221,31 @@
         <div class="back" @click="dialogTableVisibleEdit = false">
           {{ $t("back") }}
         </div>
-        <div class="save" @click="editSave">{{ $t("save") }}</div>
+        <div class="save" @click="multitermEditSave">{{ $t("save") }}</div>
+      </div>
+    </el-dialog>
+
+    <!-- 话术单条编辑弹窗 -->
+    <el-dialog
+      :close-on-click-modal="false"
+      :title="$t('edit')"
+      :visible.sync="dialogEdit"
+      width="20%"
+    >
+      <div class="Add">
+        <div class="Mtitle">{{ $t("add") }}{{ $t("speechSkills") }}</div>
+        <el-input
+          v-model="speechEdit"
+          :placeholder="$t('speechSkills')"
+          class="Input"
+        ></el-input>
+      </div>
+
+      <div class="vcerbalAddition">
+        <div class="back" @click="dialogEdit = false">
+          {{ $t("back") }}
+        </div>
+        <div class="save" @click="speechEditSave">{{ $t("save") }}</div>
       </div>
     </el-dialog>
   </div>
@@ -200,6 +258,8 @@ import {
   addScripts,
   deleteScripts,
   deleteScript,
+  editScript,
+  editScripts
 } from "@/services/api/user/index";
 import { mapState } from "vuex";
 export default {
@@ -214,19 +274,21 @@ export default {
       country: "",
       language: "",
       activeNames: [],
-      greetingsNumber: 3,
-      consultNumber: 3,
-      commonProblemNumber: 3,
       speechLists: [],
       dialogTableVisible: false, //弹窗开关
       dialogTableVisibleAdd: false, //添加弹窗
       dialogTableVisibleEdit: false, //编辑弹窗
+      dialogEdit:false, //单条编辑弹窗
+      singEditTitle:'',//单条编辑输入框
+      speechEdit:'', //编辑输入框
+      speechListTitle:'', //单条标题
+      speechListId:'', //单条id
       // 初始化包含两个空字符串的数组
       inputArray: [{ value: "" }],
       inputArrayEdit: [{ value: "" }, { value: "" }],
       input: "",
       addTitle: "",
-      editTitle: "",
+      editTitle: "", //多条编辑弹窗
       regionId: 0,
       loading: true,
       regions: [
@@ -280,6 +342,8 @@ export default {
           ],
         },
       ], //地区和语言
+      visible: false,
+      
     };
   },
   async mounted() {
@@ -347,7 +411,58 @@ export default {
       }));
       this.dialogTableVisibleEdit = true;
     },
-    editSave() {},
+    // 话术单条编辑
+    singleSpeechEdit(speechList,item) {
+      this.dialogEdit = true
+      this.speechListTitle = speechList.category_name
+      this.speechEdit = item.content
+      this.speechListId= item.id
+    },
+    speechEditSave(){
+      const id = this.speechListId
+      const data={
+        user_id:this.userId,
+        region_id:this.regionId,
+        category_name:this.speechListTitle,
+        content:this.speechEdit
+      }
+      editScript(id,data).then(() => {
+          // console.log(res);
+          this.getScriptsData();
+          this.dialogEdit = false;
+          this.$message({
+            message: this.$t("editSpeechSkillsSuccess"),
+            type: "success",
+          });
+        })
+        .catch((error) => {
+          this.$message({
+            message: this.$t("editSpeechSkillsError"),
+            type: "error",
+          });
+          console.error(error);
+        });
+    },
+    // 话术多条编辑
+    multitermEditSave(){
+      const contents = this.inputArrayEdit.map(item=>item.value)
+      editScripts(this.userId,this.regionId,this.editTitle,contents).then(() => {
+          // console.log(res);
+          this.getScriptsData();
+          this.dialogTableVisibleEdit = false;
+          this.$message({
+            message: this.$t("editSpeechSkillsSuccess"),
+            type: "success",
+          });
+        })
+        .catch((error) => {
+          this.$message({
+            message: this.$t("editSpeechSkillsError"),
+            type: "error",
+          });
+          console.error(error);
+        });
+    },
     addEditInput() {
       this.inputArrayEdit.push({ value: "" });
     },
@@ -358,6 +473,7 @@ export default {
       this.country = country.country_name;
       this.language = languageName;
       this.regionId = country.country_id;
+      this.visible = false;
       // console.log(country, this.regionId);
     },
     // 话术查询

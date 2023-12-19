@@ -3,7 +3,7 @@
     font-family: PingFang SC, PingFang SC-Bold;
     font-weight: 700;
     text-align: left;
-    color: #1f2329;
+    color: #fff;
     line-height: 20px;
     margin-top: 20px;
 
@@ -14,34 +14,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .linkLists {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
         box-sizing: border-box;
-        border-bottom:1px solid #dee0e3;
+        border-bottom: 1px solid #2b3253;
         width: 100%;
+
         .linkLogo {
             width: 42px;
             height: 42px;
             background-image: url('@/assets/icons/linkLogo.png');
             background-size: cover;
-            
+
         }
+
         .linkContent {
             margin-left: 10px;
             display: flex;
             flex-direction: column;
-            align-items:flex-start;
+            align-items: flex-start;
             overflow: hidden;
             flex: 1;
             width: 100%;
+
             .linkName {
                 font-size: 16px;
                 font-family: PingFang SC, PingFang SC-Bold;
                 font-weight: 700;
-                color: #1f2329;
+                color: #fff;
             }
 
             .linkStyle {
@@ -51,15 +55,23 @@
                 font-weight: 400;
                 color: #5868f3;
             }
+
+            .linkDetail {
+                font-size: 12px;
+                font-family: PingFang SC, PingFang SC-Regular;
+                color: #8f959e;
+            }
         }
-        .controls{
+
+        .controls {
             display: flex;
             align-items: center;
             justify-content: space-around;
         }
     }
-    
+
 }
+
 .classify {
     display: flex;
     flex-direction: column;
@@ -69,7 +81,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
 
     .Input {
@@ -87,7 +99,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
 
     .Input {
@@ -95,11 +107,13 @@
         width: 100%;
     }
 }
+
 .vcerbalAddition {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top: 20px;
+
     .back {
         background: #ffffff;
         border: 1px solid #dee0e3;
@@ -122,18 +136,20 @@
     margin-top: 20px;
     padding: 7px 30px;
     box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #dee0e3;
+    background: linear-gradient(180deg, #786bff, #594dfe);
+    border-radius: 5px;
+    width: 40%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
     cursor: pointer;
+
     .Mtitle {
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #5868f3;
+        color: #fff;
         line-height: 18px;
         margin-right: 5px;
     }

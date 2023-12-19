@@ -3,7 +3,7 @@
     font-family: PingFang SC, PingFang SC-Bold;
     font-weight: 700;
     text-align: left;
-    color: #1f2329;
+    color: #fff;
     line-height: 20px;
     margin-top: 20px;
 
@@ -14,8 +14,8 @@
 }
 
 .card {
-    background: #f0fbff;
-    border: 1px solid #c9f0fc;
+    background: #23273D;
+    
     border-radius: 10px;
     margin-top: 10px;
 
@@ -25,12 +25,12 @@
         justify-content: space-between;
         padding: 10px 20px;
         box-sizing: border-box;
-        border-bottom: 1px solid #c9f0fc;
+        border-bottom: 1px dashed  #fff;
 
         .time {
             font-size: 14px;
             font-family: PingFang SC, PingFang SC-Regular;
-            color: #1f2329;
+            color: #fff;
         }
 
         .controls {
@@ -44,7 +44,7 @@
     .cardContent {
         font-size: 14px;
         font-family: PingFang SC, PingFang SC-Regular;
-        color: #1f2329;
+        color: #fff;
         padding: 10px 20px;
         box-sizing: border-box;
     }
@@ -61,8 +61,10 @@
         cursor: pointer;
         padding: 7px 30px;
         box-sizing: border-box;
-        border-radius: 10px;
-        border: 1px solid #dee0e3;
+        background: linear-gradient(180deg, #786bff, #594dfe);
+        border-radius: 5px;
+        width: 40%;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -71,7 +73,7 @@
             font-size: 16px;
             font-family: PingFang SC, PingFang SC-Bold;
             font-weight: 700;
-            color: #5868f3;
+            color: #fff;
             line-height: 18px;
             margin-right: 5px;
         }
@@ -87,7 +89,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
 
     .Input {
@@ -100,7 +102,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #1f2329;
+        color: #fff;
     }
     .Input {
         margin-top: 12px;

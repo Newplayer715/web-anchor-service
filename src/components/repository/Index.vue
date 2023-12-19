@@ -7,15 +7,21 @@
           <div class="top">
             <div class="time">{{ item.time }}</div>
             <div class="controls">
+              <el-tooltip :content="$t('send')" placement="top" effect="light">
               <div
-                class="iconfont icon-jijianfasong-xianxing"
-                style="font-size: 25px; color: #5868f3; margin: 0 10px"
+                class="iconfont icon-jijianfasong-xianxing"  @click="repositorySend(item)"
+                style="font-size: 25px; color: #5868f3; margin: 0 10px;cursor: pointer;"
               ></div>
+            </el-tooltip>
+            <el-tooltip :content="$t('edit')" placement="top" effect="light">
               <div
                 class="iconfont icon-bianji"
                 @click="repositoryEdit(item)"
-                style="font-size: 25px; color: #5868f3"
+                style="font-size: 25px; color: #5868f3;cursor: pointer;"
               ></div>
+            </el-tooltip>
+
+            <el-tooltip :content="$t('delete')" placement="top" effect="light">
               <el-popconfirm
                 :title="$t('deleteKnowledgeBasePrompt')"
                 @confirm="deleteRepositoryData(item.id)"
@@ -25,13 +31,16 @@
                 <div
                   slot="reference"
                   class="iconfont icon-shanchu"
-                  style="font-size: 25px; color: #f54a45; margin: 0 10px"
+                  style="font-size: 25px; color: #f54a45; margin: 0 10px;cursor: pointer;"
                 ></div>
               </el-popconfirm>
+            </el-tooltip>
+            <el-tooltip :content="$t('copy')" placement="top" effect="light">
               <div
                 class="iconfont icon-fuzhi"
-                style="font-size: 32px; color: #5868f3"
+                style="font-size: 32px; color: #5868f3;cursor: pointer;"
               ></div>
+            </el-tooltip>
             </div>
           </div>
           <div class="cardContent">
@@ -45,7 +54,7 @@
 
             <div
               class="iconfont icon-tianjia1"
-              style="color: #5868f3; font-size: 20px"
+              style="color: #fff; font-size: 28px"
             ></div>
           </div>
         </div>
@@ -116,6 +125,7 @@ import {
   deleteKnowledges,
 } from "@/services/api/user/index";
 import {formatTimestamp} from "@/utils/timezoneOffset"
+import { mapState } from "vuex";
 export default {
   name: "repositoryComponent",
   props: {
@@ -139,7 +149,30 @@ export default {
   async mounted() {
     await this.getRepositoryData();
   },
+  computed: {
+    ...mapState({
+      currentChat: (state) => state.chatIM.currentChat,
+    }),
+  },
   methods: {
+    // 知识库发送
+    repositorySend(item) {
+      // console.log(item);
+      if (this.currentChat) {
+        const content = {
+          type: "text",
+          data: {
+            text: item.content,
+          },
+        };
+        this.$store.dispatch("chatIM/setQuickMessage", content);
+      } else {
+        this.$message({
+          message: this.$t("selectDialog"),
+          type: "warning",
+        });
+      }
+    },
     // 获取知识库
     getRepositoryData() {
       getKnowledges(this.userId)
@@ -207,7 +240,7 @@ export default {
       let data = {
         title: this.editRepositoryTitle,
         content: this.editRepository,
-        user_id: this.editRepositoryId,
+        user_id: this.userId,
       };
       // console.log(this.editLinkId);
       editKnowledges(this.editRepositoryId, data)

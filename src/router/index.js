@@ -7,18 +7,8 @@ const routes = [
   {
     path: "/",
     name: "HomeView",
-    redirect: "/ChatView", // 重定向到第一个子路由
+    // redirect: "/ChatView", // 重定向到第一个子路由
     component: () => import("@/views/Home/HomeView.vue"),
-    children: [
-      {
-        path: "ChatView",
-        component: () => import("@/views/ChatView/ChatView.vue"),
-      },
-      {
-        path: "AddressBook",
-        component: () => import("@/views/AddressBook/AddressBook.vue"),
-      },
-    ],
   },
   {
     path: "/Login",

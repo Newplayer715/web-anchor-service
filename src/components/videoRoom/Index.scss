@@ -1,0 +1,328 @@
+.top {
+  width: 100%;
+  height: 100%;
+  background-color: #0E101B;
+  border: 1px solid #222433;
+
+  .anchor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px 15px 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #222433;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .anchorImg {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #161c2d;
+        border-radius: 50%;
+        background-size: cover;
+      }
+
+      .Mtitle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-left: 20px;
+        max-width: 220px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .introduction {
+          font-size: 18px;
+          font-family: PingFang SC, PingFang SC-Regular;
+          color: #ffffff;
+        }
+
+        .live_name {
+          font-size: 16px;
+          font-family: PingFang SC, PingFang SC-Regular;
+          color: #8f959e;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .hot {
+    padding: 20px 30px 20px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .hots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .hotData {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #ffffff;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+
+    .setting {
+      background: linear-gradient(180deg, #786bff, #594dfe);
+      border-radius: 5px;
+      padding: 10px 30px;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: PingFang SC, PingFang SC-Bold;
+      font-weight: 700;
+      text-align: center;
+      color: #ffffff;
+      line-height: 18px;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+
+  .video-containers {
+    position: relative;
+    width: 100%;
+    height: 56.25vh;
+
+    .video-js {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    // 保持当视频不足以填充容器时居中显示
+    .video-js .vjs-tech {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+
+
+}
+
+.bottom {
+  width: 100%;
+  height: 90px;
+  background-color: #090814;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  box-sizing: border-box;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+
+    .anchorName {
+      font-size: 16px;
+      font-family: PingFang SC, PingFang SC-Regular;
+      color: #ffffff;
+    }
+
+    .fans {
+      font-size: 16px;
+      font-family: PingFang SC, PingFang SC-Regular;
+      color: #ffb24d;
+      margin-top: 10px;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .status {
+      .start {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-right: 1px solid #222433;
+
+        .punctuation {
+          width: 6px;
+          height: 6px;
+          background: #309aff;
+          border-radius: 50%;
+        }
+
+        .title {
+          font-size: 16px;
+          font-family: PingFang SC, PingFang SC-Regular;
+          color: #ffffff;
+          margin-left: 10px;
+          margin-right: 20px;
+          white-space: nowrap;
+          display: flex;
+        }
+      }
+
+      .stop {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #8f959e;
+      }
+    }
+
+    .stopButton {
+      width: 50px;
+      height: 50px;
+      background: #DC321C;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .startButton {
+      width: 50px;
+      height: 50px;
+      background: #507cff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+
+  .edit {
+    width: 30px;
+    height: 30px;
+    background: #600cff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .uploadCover {
+    width: 30px;
+    height: 30px;
+    background: #0cba9f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .uploadAvatar {
+    width: 30px;
+    height: 30px;
+    background: #fd5723;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 16px;
+    font-family: PingFang SC, PingFang SC-Regular;
+    margin-left: 10px;
+    color: #ffffff;
+  }
+}
+
+.editorialCover {
+  .title {
+    font-size: 20px;
+    font-family: PingFang SC, PingFang SC-Bold;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .Mtitle {
+    font-size: 16px;
+    font-family: PingFang SC, PingFang SC-Regular;
+    color: #8f959e;
+    margin-top: 10px;
+  }
+
+  .Upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .pictureUpload {
+      width: 240px;
+      height: 133.6px;
+      background: #252737;
+      border: 1px dashed #5b5d68;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      background-size: cover;
+    }
+  }
+
+
+}
+.editTitle {
+  .Mtitle {
+    font-size: 16px;
+    font-family: PingFang SC, PingFang SC-Bold;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .Input {
+    margin-top: 12px;
+    width: 100%;
+  }
+}
+:deep .el-upload--picture-card {
+  width: 240px;
+  height: 133.6px;
+  background: #252737;
+  border: 1px dashed #5b5d68;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+:deep .el-statistic .con .number {
+  color: #ffffff;
+}

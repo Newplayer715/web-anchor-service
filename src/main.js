@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./assets/fonts/iconfont/iconfont.css";
+
 import VueI18n from "vue-i18n";
 import ms from "./locales/ms";
 import en from "./locales/en";
@@ -10,7 +11,9 @@ import vi from "./locales/vi";
 import zh_cn from "./locales/zh_cn";
 import zh_hk from "./locales/zh_hk";
 
-// import "element-ui/lib/theme-chalk/index.css";
+const TcPlayer = window.TcPlayer
+Vue.prototype.TcPlayer = TcPlayer
+import "element-ui/lib/theme-chalk/index.css";
 import "./element-variables.scss";
 import "./global.scss";
 import ElementUI from "element-ui";

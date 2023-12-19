@@ -6,7 +6,6 @@
         class="infinite-list"
         v-infinite-scroll="load"
         style="overflow: auto; width: 100%"
-        
       >
         <div class="linkLists" v-for="(item, index) in linkLists" :key="index">
           <div class="linkLogo"></div>
@@ -19,27 +18,39 @@
             <div class="linkDetail">{{ item.time }}</div>
           </div>
           <div class="controls">
-            <div
-              class="iconfont icon-jijianfasong-xianxing"
-              style="font-size: 25px; color: #5868f3; margin: 0 10px"
-            ></div>
-            <div
-              class="iconfont icon-bianji"
-              @click="linkEdit(item)"
-              style="font-size: 25px; color: #5868f3"
-            ></div>
-            <el-popconfirm :title="$t('deleteLinkPrompt')" @confirm="deleteLinksData(item.id)" :confirm-button-text="$t('confirm')"
-                :cancel-button-text="$t('cancel')">
+            <el-tooltip :content="$t('send')" placement="top" effect="light">
               <div
-                slot="reference"
-                class="iconfont icon-shanchu"
-                style="font-size: 25px; color: #f54a45; margin: 0 10px"
+                class="iconfont icon-jijianfasong-xianxing" @click="linkSend(item)"
+                style="font-size: 25px; color: #5868f3; margin: 0 10px;cursor: pointer;"
               ></div>
-            </el-popconfirm>
-            <div
-              class="iconfont icon-fuzhi"
-              style="font-size: 32px; color: #5868f3"
-            ></div>
+            </el-tooltip>
+            <el-tooltip :content="$t('edit')" placement="top" effect="light">
+              <div
+                class="iconfont icon-bianji"
+                @click="linkEdit(item)"
+                style="font-size: 25px; color: #5868f3;cursor: pointer;"
+              ></div>
+            </el-tooltip>
+            <el-tooltip :content="$t('delete')" placement="top" effect="light">
+              <el-popconfirm
+                :title="$t('deleteLinkPrompt')"
+                @confirm="deleteLinksData(item.id)"
+                :confirm-button-text="$t('confirm')"
+                :cancel-button-text="$t('cancel')"
+              >
+                <div
+                  slot="reference"
+                  class="iconfont icon-shanchu"
+                  style="font-size: 25px; color: #f54a45; margin: 0 10px;cursor: pointer;"
+                ></div>
+              </el-popconfirm>
+            </el-tooltip>
+            <el-tooltip :content="$t('copy')" placement="top" effect="light">
+              <div
+                class="iconfont icon-fuzhi"
+                style="font-size: 32px; color: #5868f3;cursor: pointer;"
+              ></div>
+            </el-tooltip>
           </div>
         </div>
       </ul>
@@ -48,13 +59,18 @@
 
         <div
           class="iconfont icon-tianjia1"
-          style="color: #5868f3; font-size: 20px"
+          style="color: #fff; font-size: 28px"
         ></div>
       </div>
     </div>
 
     <!-- 链接添加弹窗 -->
-    <el-dialog :title="$t('add')  +  $t('link')" :visible.sync="dialogLinkAdd" width="20%" :close-on-click-modal="false">
+    <el-dialog
+      :title="$t('add') + $t('link')"
+      :visible.sync="dialogLinkAdd"
+      width="20%"
+      :close-on-click-modal="false"
+    >
       <div class="classify">
         <div class="Mtitle">{{ $t("link") }}{{ $t("title") }}</div>
         <el-input
@@ -79,7 +95,12 @@
     </el-dialog>
 
     <!-- 链接编辑弹窗 -->
-    <el-dialog :title="$t('edit')" :visible.sync="dialogLinkEdit" width="20%" :close-on-click-modal="false">
+    <el-dialog
+      :title="$t('edit')"
+      :visible.sync="dialogLinkEdit"
+      width="20%"
+      :close-on-click-modal="false"
+    >
       <div class="classify">
         <div class="Mtitle">{{ $t("link") }}{{ $t("title") }}</div>
         <el-input
@@ -112,7 +133,8 @@ import {
   editLinks,
   deleteLinks,
 } from "@/services/api/user/index";
-import {formatTimestamp} from "@/utils/timezoneOffset"
+import { formatTimestamp } from "@/utils/timezoneOffset";
+import { mapState } from "vuex";
 export default {
   name: "commonLink",
   props: {
@@ -129,14 +151,38 @@ export default {
       editLink: "", //链接修改
       editTitle: "", //标题修改
       editLinkId: "", //链接修改Id
-      loading: true
+      loading: true,
     };
+  },
+  computed: {
+    ...mapState({
+      currentChat: (state) => state.chatIM.currentChat,
+    }),
   },
   async mounted() {
     await this.getLinkData();
   },
 
   methods: {
+    // 链接发送
+    linkSend(item) {
+      // console.log(item);
+      if (this.currentChat) {
+        const content = {
+          type: "link",
+          data: {
+            name: item.name,
+            link: item.content,
+          },
+        };
+        this.$store.dispatch("chatIM/setQuickMessage", content);
+      } else {
+        this.$message({
+          message: this.$t("selectDialog"),
+          type: "warning",
+        });
+      }
+    },
     linkEdit(item) {
       this.editTitle = item.name;
       this.editLink = item.content;
@@ -145,13 +191,15 @@ export default {
     },
     // 链接删除
     deleteLinksData(id) {
-      deleteLinks(id).then(() => {
-        this.getLinkData();
+      deleteLinks(id)
+        .then(() => {
+          this.getLinkData();
           this.$message({
             message: this.$t("deleteLinkSuccess"),
             type: "success",
           });
-      }).catch((error) => {
+        })
+        .catch((error) => {
           this.$message({
             message: this.$t("deleteLinkError"),
             type: "error",
@@ -187,16 +235,18 @@ export default {
 
     // 获取链接
     getLinkData() {
-      getLinks(this.userId).then((res) => {
-        this.linkLists = res.data.map(item=>({
-          ...item,
-          time:formatTimestamp(item.timestamp)
-        }));
-        this.loading = false
-        // console.log(this.linkLists);
-      }).catch((error)=>{
-        console.error(error);
-      });
+      getLinks(this.userId)
+        .then((res) => {
+          this.linkLists = res.data.map((item) => ({
+            ...item,
+            time: formatTimestamp(item.timestamp),
+          }));
+          this.loading = false;
+          // console.log(this.linkLists);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
     // 链接增加
     addLinksData() {

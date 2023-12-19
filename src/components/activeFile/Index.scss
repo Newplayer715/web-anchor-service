@@ -3,7 +3,7 @@
     font-family: PingFang SC, PingFang SC-Bold;
     font-weight: 700;
     text-align: left;
-    color: #1f2329;
+    color: #fff;
     line-height: 20px;
     margin-top: 20px;
 
@@ -15,10 +15,12 @@
 
 .uploadFiles {
     margin-top: 20px;
+    width: 40%;
+    height: 50px;
     padding: 7px 30px;
     box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid #dee0e3;
+    background: linear-gradient(180deg, #786bff, #594dfe);
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +29,7 @@
         font-size: 16px;
         font-family: PingFang SC, PingFang SC-Bold;
         font-weight: 700;
-        color: #5868f3;
+        color: #fff;
         line-height: 18px;
         margin-right: 5px;
     }
@@ -51,19 +53,22 @@
         flex-direction: column;
         justify-content: space-between;
         margin: 0 10px;
+
         .fileName {
             font-size: 16px;
             font-family: PingFang SC, PingFang SC-Bold;
             font-weight: 700;
-            color: #1f2329;
+            color: #fff;
         }
-        .fileDetail{
+
+        .fileDetail {
             font-size: 12px;
             font-family: PingFang SC, PingFang SC-Regular;
-            color: #707477;
+            color: #8F959E;
         }
-        
+
     }
+
     .controls {
         display: flex;
         align-items: center;
@@ -77,7 +82,16 @@
     align-items: center;
     justify-content: center;
     order: 1;
+}
 
+:deep .el-upload__tip {
+    color: #fff;
+}
+
+:deep .el-upload-list--picture .el-upload-list__item {
+    background-color: #1a1e32;
+    border: none;
+    border-bottom: 1px solid #2b3253;
 }
 
 :deep .upload-demo {

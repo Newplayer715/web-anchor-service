@@ -1,25 +1,41 @@
 <template>
   <div class="userInfo">
     <el-row>
-      <el-col :span="16">
+      <el-col :span="18">
+        <div class="userInfoRight">
+          <!-- 切换语言 -->
+          <el-popover placement="bottom" width="270" trigger="click">
+            <regionalLanguage></regionalLanguage>
+
+            <div class="languageSwitch" slot="reference">
+              <div class="selectorIcon"></div>
+              <div class="title">Language</div>
+              <i class="el-icon-arrow-down" style="color: #507CFF;"></i>
+            </div>
+          </el-popover>
+        </div>
+      </el-col>
+      <el-col :span="4" :offset="2" >
         <div class="userInfoLeft">
           <img class="userAvatar" :src="imageUrl" />
           <div class="userMode">
             <div class="userModeTop">
-              <div class="userName">{{ username }}</div>
+              <!-- <div class="userName">{{ username }}</div> -->
               <el-popover placement="bottom" width="220" trigger="click">
                 <div class="userPopup">
-                  <div class="editData" @click="openDialog">{{ $t("edit") }}</div>
+                  <div class="editData" @click="openDialog">
+                    {{ $t("edit") }}
+                  </div>
                   <div class="logOut" @click="logout">{{ $t("logout") }}</div>
                 </div>
                 <i
-                  class="el-icon-s-fold"
-                  style="font-size: 20px; cursor: pointer"
+                  class="iconfont icon-caidan"
+                  style="font-size: 20px; cursor: pointer;color: #fff;"
                   slot="reference"
                 ></i>
               </el-popover>
             </div>
-            <div class="userModeBottom">
+            <!-- <div class="userModeBottom">
               <div class="identity">{{ $t(identity) }}</div>
               <el-popover
                 placement="right-start"
@@ -35,7 +51,7 @@
                 >
                   <div class="list" @click="changeStatus(index, item)">
                     <div class="listLeft">
-                      <div  class="normal" v-if="item.id === 0"></div>
+                      <div  class="normal" v-if="item.id === 1"></div>
                       <div  class="status" v-else></div>
                       <div class="title">{{ $t(item.title) }}</div>
                     </div>
@@ -45,38 +61,33 @@
                 <div
                   class="userStatus"
                   slot="reference"
-                  v-if="status === 'normal'"
+                  v-if="status == 1"
                 >
+                <div class="status">
                   {{ $t("normal") }}
-                  <i class="el-icon-arrow-down"></i>
+                </div>
+                  <div class="el-icon-arrow-down" style="color: #fff;"></div>
                 </div>
                 <div v-else class="userStatus stop" slot="reference">
+                  <div class="status ">
                   {{ $t("pause") }}
-                  <i class="el-icon-arrow-down"></i>
+                </div>
+                  <div class="el-icon-arrow-down" style="color: #fff;"></div>
                 </div>
               </el-popover>
-            </div>
+            </div> -->
           </div>
         </div>
       </el-col>
-      <el-col :span="8">
-        <div class="userInfoRight">
-          <!-- 切换语言 -->
-          <el-popover placement="bottom" width="270" trigger="click">
-            <regionalLanguage></regionalLanguage>
 
-            <div class="languageSwitch" slot="reference">
-              <div class="selectorIcon"></div>
-              <div class="title">Language</div>
-              <i class="el-icon-arrow-up"></i>
-            </div>
-          </el-popover>
-        </div>
-      </el-col>
     </el-row>
 
     <!-- 编辑对话框 -->
-    <el-dialog :title="$t('editInformation')" :visible.sync="dialogFormVisible" width="30%">
+    <el-dialog
+      :title="$t('editInformation')"
+      :visible.sync="dialogFormVisible"
+      width="30%"
+    >
       <div class="modificationContent">
         <el-upload
           class="avatar-uploader"
@@ -103,10 +114,12 @@
         </div>
       </div>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">{{ $t("cancel") }}</el-button>
-        <el-button type="primary" @click="userInforSave"
-          >{{ $t("save") }}</el-button
-        >
+        <el-button @click="dialogFormVisible = false">{{
+          $t("cancel")
+        }}</el-button>
+        <el-button type="primary" @click="userInforSave">{{
+          $t("save")
+        }}</el-button>
       </div>
     </el-dialog>
   </div>
@@ -124,53 +137,54 @@ export default {
       ProfileUpload,
       status: "",
       statusList: [
-        { status: "normal", title: "normalState", id: 0 },
-        { status: "pause", title: "pauseState", id: 1 },
+        { status: "normal", title: "normalState", id: 1 },
+        { status: "pause", title: "pauseState", id: 2 },
       ],
       radio: "",
       dialogFormVisible: false,
       imageUrl: "",
       username: "",
-      editName:'',
-      identity: "csIdentity",
-      userId: '',
-      loadParams:{
-        user_id:Number(localStorage.getItem("user_id"))
-      }
+      editName: "",
+      identity: "streamerIdentity",
+      userId: "",
+      loadParams: {
+        user_id: Number(localStorage.getItem("user_id")),
+      },
     };
   },
   async mounted() {
     //FIXME: 待适配
     this.userId = Number(localStorage.getItem("user_id"));
     await this.getUserData();
-    if (this.status === "normal") {
+    if (this.status == 1) {
       this.radio = 0;
     } else {
       this.radio = 1;
     }
   },
   methods: {
-    userInforSave(){
+    userInforSave() {
       const userData = {
         username: this.editName,
         status: this.status,
       };
       updateUser(this.userId, userData)
         .then(() => {
-          
           this.getUserData();
           this.$message({
             message: this.$t("changeMessageSuccess"),
             type: "success",
           });
-          this.dialogFormVisible = false
+          this.$emit('userSave');
+          this.dialogFormVisible = false;
+          
         })
         .catch((error) => {
           console.error(error);
           this.$message.error(this.$t("changeMessageError"));
         });
     },
-    
+
     logout() {
       this.$store.dispatch("user/logout").then(() => {
         this.$message({
@@ -200,11 +214,11 @@ export default {
 
     changeStatus(index, item) {
       this.radio = index;
-      this.status = item.status;
+      this.status = item.id;
       // console.log(this.status);
       const userData = {
         username: this.username,
-        status: item.status,
+        status: this.status,
       };
       updateUser(this.userId, userData)
         .then(() => {
@@ -217,16 +231,16 @@ export default {
       // console.log(item);
     },
     openDialog() {
-      this.editName = this.username
+      this.editName = this.username;
       this.dialogFormVisible = true;
     },
     // 上传成功回调
     async handleAvatarSuccess() {
-      await this.getUserData()
+      await this.getUserData();
       this.$message({
-          message: this.$t("changeAvatarSuccess"),
-          type: "success",
-        });
+        message: this.$t("changeAvatarSuccess"),
+        type: "success",
+      });
     },
     beforeAvatarUpload(file) {
       console.log(file);

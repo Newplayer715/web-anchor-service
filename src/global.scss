@@ -33,11 +33,7 @@
   font-family: PingFang SC, PingFang SC-Bold;
   font-weight: 700;
   color: #1f2329;
-}
-
-.el-dialog {
-  background: #ffffff;
-  border-radius: 10px;
+  border-bottom: 1px solid #2b3253;
 }
 
 // 有地方需要边框 不需要边框可多加类名 下面样式选择器前面加上该类名
@@ -54,4 +50,64 @@
 textarea {
   resize: none !important;
 }
+}
+
+.el-popper{
+  background-color: #171A2B;
+  border: 1px solid #171A2B;
+}
+.el-popover__title{
+  color: #FFFFFF;
+}
+
+.popper__arrow{
+  display: none !important;
+}
+.el-collapse-item__header{
+  background-color: #1A1E32 !important;
+  color:#fff;
+  font-weight: 700;
+}
+.el-collapse{
+  border-top:none;
+  border-bottom: 1px solid #2b3253;
+}
+.el-collapse-item__wrap{
+  background-color: #1A1E32 !important;
+  border-bottom: 1px solid #2b3253;
+}
+.el-loading-mask{
+  background-color: #1A1E32;
+}
+.el-dialog{
+  background-color: #222433;
+  border-radius: 10px;
+  .el-dialog__title{
+    color: #fff;
+  }
+}
+
+
+.generalButton{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  .save {
+    padding: 7px 32px;
+    box-sizing: border-box;
+    background: #5868f3;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .back {
+    background: #ffffff;
+    border: 1px solid #dee0e3;
+    border-radius: 5px;
+    padding: 7px 32px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
 }
