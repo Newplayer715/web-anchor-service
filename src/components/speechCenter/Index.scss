@@ -1,0 +1,263 @@
+.center {
+    padding-top: 20px;
+    box-sizing: border-box;
+
+    .title {
+        font-size: 18px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+        line-height: 20px;
+    }
+
+    .regionalSelection {
+        margin-top: 20px;
+        background: #00b164;
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            .title {
+                font-size: 16px;
+                font-family: PingFang SC, PingFang SC-Regular;
+                color: #ffffff;
+                margin-left: 10px;
+            }
+        }
+
+
+    }
+
+    .currentArea {
+        margin-top: 10PX;
+        display: flex;
+        align-items: center;
+
+        .title {
+            font-size: 14px;
+            font-family: PingFang SC, PingFang SC-Regular;
+            color: #00b164;
+            line-height: 20px;
+        }
+    }
+}
+
+.bottom {
+    margin-top: 20px;
+
+    .speechList {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #eff0f1;
+        border-radius: 5px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .punctuation {
+                // flex:0 0 8px;
+                min-width: 8px;
+                min-height: 8px;
+                background: #8f959e;
+                border-radius: 50%;
+            }
+
+            .title {
+                margin:10px 10px;
+                font-size: 14px;
+                font-family: PingFang SC, PingFang SC-Regular;
+                color: #1f2329;
+                white-space: normal;
+                word-break: break-all;
+                word-wrap: break-word;
+                max-width: 500px;
+                height: auto;
+            }
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+
+    .verbalManagement {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+    }
+
+    .verbalManagementBotton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #dee0e3;
+        border-radius: 10px;
+        height: 40px;
+        width: 290px;
+        box-sizing: border-box;
+        margin-top: 40px;
+        cursor: pointer;
+
+        .title {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Bold;
+            font-weight: 700;
+            color: #5868f3;
+            line-height: 18px;
+        }
+
+        .icon {
+            background-image: url('@/assets/icons/verbalManagement.svg');
+            background-size: cover;
+            width: 18px;
+            height: 16px;
+            margin-left: 20px;
+        }
+    }
+
+
+}
+
+
+
+.verbalLists {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dee0e3;
+    padding: 20px 10px;
+    box-sizing: border-box;
+
+    .operation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .edit {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Regular;
+            color: #5868f3;
+
+        }
+    }
+}
+
+.verbalAddButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 1px solid #dee0e3;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .title {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #5868f3;
+        line-height: 18px;
+        margin-left: 10px;
+    }
+}
+
+.classify {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+    .Mtitle {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+    }
+
+    .Input {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+
+.Add {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+    .Mtitle {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+    }
+
+    .Input {
+        margin-top: 12px;
+        width: 100%;
+    }
+
+    .addButton {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        cursor: pointer;
+
+        .title {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Regular;
+            color: #5868f3;
+            line-height: 18px;
+            margin-left: 10px;
+        }
+    }
+}
+
+.vcerbalAddition {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    .back {
+        background: #ffffff;
+        border: 1px solid #dee0e3;
+        border-radius: 5px;
+        padding: 7px 32px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .save {
+        padding: 7px 32px;
+        box-sizing: border-box;
+        background: #5868f3;
+        border-radius: 5px;
+        margin-left: 10px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}

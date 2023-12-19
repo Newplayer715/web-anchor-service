@@ -1,0 +1,198 @@
+.messageArea {
+  display: flex;
+  flex-direction: column;
+  .messageList {
+    height: calc(100vh - 246px - 100px);
+    max-height: calc(100vh - 246px - 100px);
+    padding: 10px 20px 20px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #fafafa;
+    .content {
+     
+    }
+  }
+  .messageItem {
+    .time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      // 字体
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      color: #707477;
+    }
+
+    .notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .messageContent {
+      display: flex;
+      .avatar-left {
+        order: -1;
+        /* 将发送者的头像放在最左边*/
+      }
+      .avatar-right {
+        order: 1;
+      }
+      .nameArea {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        .name {
+          font-weight: 700;
+          text-align: left;
+          color: #1f2329;
+          // 超过一行显示省略号
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 200px;
+        }
+        .time {
+          font-weight: 400;
+          text-align: left;
+          color: #707477;
+        }
+      }
+      .nameAreaRight{
+        justify-content: flex-end;
+
+      }
+      .message-content-left {
+        // max-width: 263px;
+        height: 100%;
+        margin-left: 10px;
+        .dialog {
+          display: flex;
+        }
+        .message-error {
+          color: red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 5px;
+        }
+      }
+
+      .message-content-right {
+        // max-width: 263px;
+        height: 100%;
+        margin-right: 10px;
+        .dialogI {
+          display: flex;
+          justify-content: flex-end;
+          .message-error {
+            color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            font-size: 20px;
+          }
+        }
+      }
+
+      .text-content {
+        word-break: break-all; /* 在任意字符处换行 */
+        height: 100%;
+        line-height: 18px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #ffffff;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+      }
+    }
+
+    .messageContent.received {
+      /*靠左对齐*/
+      justify-content: flex-start;
+    }
+
+    .messageContent.sent {
+      /*靠右对齐*/
+      justify-content: flex-end;
+    }
+  }
+  .inputArea {
+    height: 246px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    .tools {
+      height: 24px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .tool {
+        display: flex;
+        align-items: center;
+        .toolItem {
+          margin-right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+
+          &:last-child {
+            margin-right: 0;
+          }
+          .icon {
+            font-size: 24px;
+            color: #848a94;
+          }
+        }
+      }
+    }
+    .inputContentArea {
+      padding: 20px 0px;
+      box-sizing: border-box;
+      max-height: calc(100vh - 810px - 24px - 35px);
+      // max-height: 180px;
+      // flex: 1 1 260px;
+    }
+    .sendArea {
+      height: 35px;
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .tipText {
+        color: #b7b9bb;
+        margin-right: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+
+
+  .searchDialogBody{
+    min-height: 500px;
+    .dateSelect{      
+        position: absolute;
+        right: 20px;
+        top: 90px;
+        // 去除时间选择器的下边框
+        .el-input__inner{
+          border: none !important;
+        }
+      
+    }
+       
+  }
+}

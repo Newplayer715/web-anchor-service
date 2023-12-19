@@ -1,0 +1,46 @@
+.translateData {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    border-bottom: 1px solid #dee0e3;
+}
+
+.translateTop {
+    display: flex;
+    align-items: center;
+
+    .translateLogo {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 26px;
+        height: 17.2px;
+    }
+
+    .translateName {
+        margin-left: 10px;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #1f2329;
+    }
+}
+
+.translateLanguage {
+    display: flex;
+    padding-top: 20px;
+    cursor: pointer;
+    .Name {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #1f2329;
+        font-weight: 500;
+        margin-right: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .Name.active {
+        color: #ffb24d;
+    }
+}

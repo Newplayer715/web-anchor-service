@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  // 自定义滚动条样式
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* 针对 Webkit 浏览器（如 Chrome, Safari）隐藏滚动条 */
+  }
+
+  // 需要显示滚动条的区域请填此类名
+  .custom-scrollbar::-webkit-scrollbar {
+    display: block; /* 显示滚动条 */
+  }
+}
+
+.el-collapse-item__header {
+  font-size: 16px;
+  font-family: PingFang SC, PingFang SC-Bold;
+  font-weight: 700;
+  color: #1f2329;
+}
+
+.el-dialog {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+// 有地方需要边框 不需要边框可多加类名 下面样式选择器前面加上该类名
+// .el-textarea__inner {
+//   border: none !important;
+// }
+// textarea {
+//   resize: none !important;
+// }
+.nonBorderTextArea {
+.el-textarea__inner {
+  border: none !important;
+}
+textarea {
+  resize: none !important;
+}
+}

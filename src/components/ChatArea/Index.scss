@@ -1,0 +1,55 @@
+.chatArea {
+  .head {
+    height: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-top: 1px solid #dee0e3;
+    border-bottom: 1px solid #dee0e3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .infomation {
+      display: flex;
+      align-items: center;
+      .name {
+        margin-left: 20px;
+        font-weight: 700;
+        text-align: left;
+        color: #1f2329;
+      }
+    }
+    .action {
+      display: flex;
+      .list-search {
+        font-size: 24px;
+        color: #1f2329;
+      }
+    }
+  }
+  
+  .nonChat {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .tipText {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      color: #1f2329;
+    }
+  }
+  .searchDialogBody {
+    height: 500px;
+    .messageSearchResult{
+      height: 420px;
+      padding: 20px 0px;
+      overflow-y: auto;
+    }
+    .titleBar {
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+    }
+  }
+}

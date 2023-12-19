@@ -1,0 +1,267 @@
+.userInfo {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #dee0e3;
+}
+
+.userInfoLeft {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 30px 22px 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #dee0e3;
+
+    .userAvatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .userMode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        margin-left: 5px;
+
+        .userModeTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .userName {
+                font-size: 18px;
+                font-family: PingFang SC, PingFang SC-Bold;
+                font-weight: 700;
+                color: #1f2329;
+            }
+        }
+
+        .userModeBottom {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 10px;
+            align-items: center;
+
+            .identity {
+                width: auto;
+                height: auto;
+                border: 1px solid #d0d0d0;
+                border-radius: 5px;
+                padding: 3px 14px;
+                box-sizing: border-box;
+                font-size: 14px;
+                font-family: PingFang SC, PingFang SC-Bold;
+                font-weight: 700;
+                color: #0073fa;
+                margin-right: 5px;
+                text-align: center;
+
+            }
+
+            .userStatus {
+                width: auto;
+                height: 25px;
+                background: #00b164;
+                border-radius: 13px;
+                padding: 0 13px;
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: PingFang SC, PingFang SC-Regular;
+                color: #ffffff;
+                cursor: pointer;
+            }
+            .stop{
+                background: #707477;
+            }
+        }
+    }
+}
+
+.statusList {
+    width: 100%;
+    height: auto;
+    padding: 12px 8px;
+    box-sizing: border-box;
+
+    .list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #dee0e3;
+        padding-bottom: 10px;
+        cursor: pointer;
+        .listLeft {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .status {
+                width: 12px;
+                height: 12px;
+                background: #707477;
+                border-radius: 50%;
+            }
+
+            .normal {
+                width: 12px;
+                height: 12px;
+                background: #707477;
+                border-radius: 50%;
+                background: #00b164;
+            }
+
+            .title {
+                font-size: 16px;
+                font-family: PingFang SC, PingFang SC-Regular;
+                color: #1f2329;
+                margin: 0 5px;
+            }
+        }
+
+    }
+
+    :deep .el-radio__label {
+        display: none;
+    }
+}
+
+.userPopup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .editData {
+        display: flex;
+        border-bottom: 1px solid #dee0e3;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #1f2329;
+        cursor: pointer;
+    }
+
+    .logOut {
+        display: flex;
+        border-bottom: 1px solid #dee0e3;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #f54a45;
+        cursor: pointer;
+    }
+}
+
+.userInfoRight {
+    padding: 29px 20px 25px 20px;
+    box-sizing: border-box;
+
+    .languageSwitch {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 46px;
+        background: #ffffff;
+        border: 1px solid #d0d0d0;
+        border-radius: 10px;
+        width:auto;
+
+        cursor: pointer;
+        .selectorIcon {
+            width: 22px;
+            height: 22px;
+            background-size: cover;
+            background-image: url('@/assets/icons/languageSwitch.svg');
+        }
+
+        .title {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Regular;
+            color: #1f2329;
+
+        }
+    }
+
+}
+
+
+
+
+.modificationContent {
+    display: flex;
+    align-items: center;
+
+    // justify-content: center;
+    .modification {
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: space-around;
+
+        .title {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Bold;
+            font-weight: 700;
+            color: #1f2329;
+        }
+
+        .nameInput {
+            margin: 10px 0 20px 0;
+            flex: 1;
+            width: 300px;
+        }
+
+        .identity {
+            height: 38px;
+            width: 150px;
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Bold;
+            font-weight: 700;
+            color: #0073fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    }
+}
+
+:deep .el-dialog {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+:deep .avatar-uploader .el-upload {
+    border: 4px solid #5f49c6;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader-icon {
+    font-size: 60px;
+    color: #5f49c6;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    display: block;
+}

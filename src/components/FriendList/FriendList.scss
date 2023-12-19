@@ -1,0 +1,357 @@
+.contentContainer {
+  box-sizing: border-box;
+  padding: 0 30px;
+  .header {
+    height: 80px;
+    width: 100%;
+
+    .el-col {
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      height: 80px;
+      line-height: 80px;
+      font-size: 20px;
+      font-family: PingFang SC, PingFang SC-Bold;
+      font-weight: 700;
+      text-align: left;
+      color: #1f2329;
+      margin-right: 50px;
+    }
+
+    .searchBar {
+      height: 45px;
+      box-sizing: border-box;
+
+      :deep .el-input__inner {
+        height: 45px;
+      }
+    }
+
+    .control {
+      .el-button.el-button--primary {
+        width: 200px;
+        font-size: 18px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+      }
+
+      .el-dialog {
+        width: 700px;
+      }
+
+      .el-divider--vertical {
+        font-size: 500px;
+      }
+
+      .elDialogBody {
+        // 新群聊名称
+        .newGroupChatName {
+          height: 80px;
+          margin-bottom: 10px;
+
+          .titleBar {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            display: flex;
+
+            .redFont {
+              color: #f54a45;
+              margin-left: 6px;
+            }
+          }
+        }
+
+        // 新群聊描述
+        .newGroupChatDescription {
+          // height: 80px;
+          margin-bottom: 20px;
+
+          .titleBar {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            display: flex;
+
+            .greyFont {
+              color: #707477;
+              margin-left: 6px;
+            }
+          }
+        }
+
+        .selectArea {
+          height: 480px;
+          display: flex;
+          box-sizing: border-box;
+          border: 1px solid #dee0e3;
+
+          .source {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 20px 12px 0px 20px;
+            height: 100%;
+
+            .inputBar {
+              margin-bottom: 20px;
+            }
+
+            .memberList {
+              height: calc(100% - 60px);
+              overflow: auto;
+
+              .el-checkbox-group {
+                display: flex;
+                flex-direction: column;
+              }
+
+              :deep .el-checkbox {
+                height: 60px;
+                .el-checkbox__input {
+                  line-height: 60px;
+                  vertical-align: top;
+                }
+                .member {
+                  height: 60px;
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+
+                  .avatar {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                  }
+
+                  .text {
+                    display: flex;
+                    flex-direction: column;
+
+                    font-size: 16px;
+                    font-family: PingFang SC, PingFang SC-Regular;
+                    font-weight: 400;
+                    text-align: left;
+
+                    .name {
+                      line-height: 22px;
+                      color: #1f2329;
+                      margin-bottom: 3px;
+                    }
+
+                    .userName {
+                      line-height: 20px;
+                      color: #707477;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .target {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 20px 20px 0px 12px;
+
+            .selectedTip {
+              line-height: 40px;
+              margin-bottom: 20px;
+            }
+
+            .memberList {
+              display: flex;
+              flex-direction: column;
+              height: calc(100% - 60px);
+              overflow: auto;
+
+              .member {
+                flex-shrink: 0;
+                height: 60px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .memberInfo {
+                  display: flex;
+                  align-items: center;
+                  .avatar {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                  }
+                  .text {
+                    display: flex;
+                    flex-direction: column;
+
+                    font-size: 16px;
+                    font-family: PingFang SC, PingFang SC-Regular;
+                    font-weight: 400;
+                    text-align: left;
+
+                    .name {
+                      line-height: 22px;
+                      color: #1f2329;
+                      margin-bottom: 3px;
+                    }
+
+                    .userName {
+                      line-height: 20px;
+                      color: #707477;
+                    }
+                  }
+                }
+
+                .cancel {
+                  width: 30px;
+                  .el-icon-close {
+                    font-size: 13px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .elDialogBodyFooter {
+        .el-button {
+          width: auto;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .table {
+    :deep .el-table__body-wrapper {
+      height: calc(100vh - 50px - 80px - 100px);
+      overflow: auto;
+    }
+
+    :deep .cell {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-family: PingFang SC, PingFang SC-Regular;
+      font-weight: 400;
+      line-height: 25px;
+
+      .el-button--text {
+        margin-left: 15px;
+        border: none;
+        padding: 0;
+        height: 25px;
+        line-height: 25px;
+        font-size: 18px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        font-weight: 400;
+        color: #5868f3;
+      }
+    }
+
+    // 身份 列
+    .identity {
+      margin-left: 10px;
+      .name {
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+      }
+
+      .userName {
+        color: #707477;
+      }
+    }
+
+    // 备注 列
+    .remark {
+      color: #1f2329;
+    }
+
+    .remark.placeholder {
+      color: #707477;
+    }
+
+    // 标签 列
+    .tags {
+      .el-tag {
+        font-size: 16px;
+        margin-right: 3px;
+      }
+    }
+
+    // 编辑标签的dialog
+    .tagsDialog {
+      .tags {
+        .header {
+          height: 60px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .title {
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+            color: #707477;
+          }
+        }
+
+        .tagsList {
+          .el-checkbox {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    // 标签管理的dialog
+    .manageTagsDialog {
+      :deep .el-dialog__body {
+        padding: 30px 20px 0 20px;
+      }
+
+      .tagsList {
+        box-sizing: border-box;
+        padding-bottom: 10px;
+        max-height: 460px;
+        overflow: auto;
+
+        .tag {
+          height: 38px;
+          box-sizing: border-box;
+          padding: 0 20px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #dee0e3;
+          margin-top: 10px;
+          // 字体
+          font-family: PingFang SC, PingFang SC-Regular;
+          font-weight: 400;
+          color: #1f2329;
+
+          .tagText {
+            font-size: 14px;
+          }
+
+          .tagDel {
+            font-size: 13px;
+            color: #f3413c;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.empty {
+  margin-top: 66px;
+}

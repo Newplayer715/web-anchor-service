@@ -1,0 +1,134 @@
+.title {
+    font-size: 18px;
+    font-family: PingFang SC, PingFang SC-Bold;
+    font-weight: 700;
+    text-align: left;
+    color: #1f2329;
+    line-height: 20px;
+    margin-top: 20px;
+
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.card {
+    background: #f0fbff;
+    border: 1px solid #c9f0fc;
+    border-radius: 10px;
+    margin-top: 10px;
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #c9f0fc;
+
+        .time {
+            font-size: 14px;
+            font-family: PingFang SC, PingFang SC-Regular;
+            color: #1f2329;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+
+
+    .cardContent {
+        font-size: 14px;
+        font-family: PingFang SC, PingFang SC-Regular;
+        color: #1f2329;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+}
+
+.uploadCard {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .button {
+        cursor: pointer;
+        padding: 7px 30px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 1px solid #dee0e3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .Mtitle {
+            font-size: 16px;
+            font-family: PingFang SC, PingFang SC-Bold;
+            font-weight: 700;
+            color: #5868f3;
+            line-height: 18px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.classify {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+    .Mtitle {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+    }
+
+    .Input {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+.Add{
+    .Mtitle {
+        font-size: 16px;
+        font-family: PingFang SC, PingFang SC-Bold;
+        font-weight: 700;
+        color: #1f2329;
+    }
+    .Input {
+        margin-top: 12px;
+        width: 100%;
+    }
+}
+.vcerbalAddition {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    .back {
+        background: #ffffff;
+        border: 1px solid #dee0e3;
+        border-radius: 5px;
+        padding: 7px 32px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .save {
+        padding: 7px 32px;
+        box-sizing: border-box;
+        background: #5868f3;
+        border-radius: 5px;
+        margin-left: 10px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}

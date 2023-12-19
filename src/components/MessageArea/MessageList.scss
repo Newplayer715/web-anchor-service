@@ -1,0 +1,165 @@
+.messageArea{
+  display: flex;
+  flex-direction: column;
+  .messageList {
+    height: auto;
+    max-height: 810px;
+    padding: 10px 20px 20px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #fafafa;
+    flex: 0 1 720px;
+    .content {
+      .messageItem {
+        .time {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px;
+          // 字体
+          font-size: 18px;
+          font-weight: 400;
+          text-align: center;
+          color: #707477;
+        }
+  
+        .notice {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .messageContent {
+          display: flex;
+          .avatar-left {
+            order: -1;
+            /* 将发送者的头像放在最左边*/
+          }
+          .avatar-right {
+            order: 1;
+          }
+  
+          .message-content-left {
+            max-width: 263px;
+            height: 100%;
+            margin-left: 10px;
+            .dialog {
+              display: flex;
+            }
+            .message-error {
+              color: red;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-left: 5px;
+            }
+          }
+  
+          .message-content-right {
+            max-width: 263px;
+            height: 100%;
+            margin-right: 10px;
+            .dialogI {
+              display: flex;
+              .message-error {
+                color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 5px;
+                font-size: 20px;
+              }
+            }
+          }
+  
+          .text-content {
+            word-break: break-all; /* 在任意字符处换行 */
+            height: 100%;
+            line-height: 18px;
+            font-size: 18px;
+            font-weight: 400;
+            color: #ffffff;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+          }
+        }
+  
+        .messageContent.received {
+          /*靠左对齐*/
+          justify-content: flex-start;
+        }
+  
+        .messageContent.sent {
+          /*靠右对齐*/
+          justify-content: flex-end;
+        }
+      }
+    }
+  
+  }
+  .inputArea {
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    flex: 1 0 24vh;
+   .tools{
+    height: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .tool{
+      display: flex;
+      align-items: center;
+      .toolItem{
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+       
+        &:last-child{
+          margin-right: 0;
+        }
+        .icon{
+          font-size: 24px;
+          color: #848a94;
+        }
+      }
+    }
+
+   }
+   .inputContentArea{
+    padding: 20px 0px;
+    box-sizing: border-box;
+    max-height: 180px;
+    // flex: 1 1 260px;
+   }
+    .sendArea{
+      height: 35px;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      display: flex;
+      justify-content: flex-end;
+      .tipText{
+        color: #b7b9bb;
+        margin-right: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+      
+      }
+      
+    }
+  }
+
+}
+
+:deep .el-textarea__inner{
+  max-height: 140px !important;
+  overflow-y:scroll;
+}

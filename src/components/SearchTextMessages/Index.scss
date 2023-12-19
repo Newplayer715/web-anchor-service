@@ -1,0 +1,35 @@
+.searchTextMessages {
+  height: 420px;
+  overflow-y: auto;
+  padding: 0px 30px;
+  .messageItem {
+    padding: 10px 0px;
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .leftArea {
+        display: flex;
+        .contentArea {
+          margin-left: 10px;
+          .name {
+            font-weight: 700;
+            text-align: left;
+            color: #1f2329;
+          }
+          .content {
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            color: #1f2329;
+          }
+        }
+        .rightArea {
+          font-weight: 400;
+          text-align: right;
+          color: #707477;
+        }
+      }
+    }
+  }
+}

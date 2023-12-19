@@ -1,0 +1,18 @@
+.noticeMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 4px 20px;
+  // 字体
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #1f2329;
+}
+.name {
+  color: #5868f3;
+}
+.messageText {
+  margin-left: 5px;
+}

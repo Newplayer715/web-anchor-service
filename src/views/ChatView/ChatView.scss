@@ -1,0 +1,161 @@
+.ChatView {
+  width: calc(100vw - 104px);
+  height: 100%;
+}
+.contentLeft {
+  height: 100vh;
+  border-right: 1px solid #dee0e3;
+
+  .header {
+    height: 100px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dee0e3;
+  }
+
+  .main {
+    .searchBar {
+      height: 90px;
+      box-sizing: border-box;
+      padding: 20px;
+      .resuletList {
+        max-height: 500px;
+        overflow-y: auto;
+      }
+    }
+
+    .chatTypeTabs {
+      box-sizing: border-box;
+
+      :deep .el-tabs__header {
+        padding: 0px 20px;
+        margin-bottom: 0px;
+        .el-tabs__active-bar {
+          height: 4px;
+        }
+
+        .el-tabs__item {
+          height: 55px;
+          line-height: 51px;
+          font-size: 18px;
+          font-family: PingFang SC, PingFang SC-Bold;
+          font-weight: 700;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.nodata {
+  text-align: center;
+  color: #707477;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.resultList {
+  padding: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  .title {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #1f2329;
+  }
+  .list{
+    .listItem{
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      .info{
+        margin-left: 10px;
+        .name{
+          color: #1f2329;
+          // 超出一行显示省略号
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 300px;
+        }
+        .idArea{
+          color: #707477;
+        }
+      }
+      &:last-child{
+        margin-top: 20px;
+      }
+      // 悬浮效果
+      &:hover{
+        background: #f6f6f6;
+      }
+    }
+  }
+}
+.contentCenter {
+  height: 100vh;
+  border-right: 1px solid #dee0e3;
+}
+.contentRight {
+  height: 100vh;
+
+  .el-container {
+    height: auto;
+    width: 100%;
+    padding: 0;
+
+    .el-header {
+      height: 104px !important;
+      width: 100%;
+      padding: 0;
+    }
+
+    .el-container {
+      .el-main {
+        padding: 0;
+      }
+
+      .el-aside {
+        background-color: #fafafa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: calc(100vh - 104px);
+
+        .tabLabel {
+          width: 50px;
+          height: 50px;
+          background-color: #eff0f1;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 20px;
+          cursor: pointer;
+
+          .icon {
+            font-size: 25px;
+          }
+        }
+
+        .tabLabel:hover {
+          //   background-color: #5868f3;
+
+          .icon {
+            color: #5868f3;
+          }
+        }
+
+        .tabLabel.active {
+          background-color: #5868f3;
+
+          .icon {
+            color: #eff0f1;
+          }
+        }
+      }
+    }
+  }
+}
